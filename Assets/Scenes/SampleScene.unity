@@ -180,6 +180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sphereTransform: {fileID: 276246760}
   cameraSensitivity: 50
+  cameraSmoothSpeed: 10
 --- !u!1 &276246756
 GameObject:
   m_ObjectHideFlags: 0
@@ -299,8 +300,8 @@ Rigidbody:
   m_GameObject: {fileID: 276246756}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Drag: 0.5
+  m_AngularDrag: 2.5
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -333,7 +334,7 @@ MonoBehaviour:
   maxSpeed: 2
   inputDelay: 0.2
   arrowPushForce: 2
-  groundFriction: 20
+  groundFriction: 2000
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
@@ -494,6 +495,7 @@ MonoBehaviour:
   rotationAmplitude: 1.5
   cameraSensitivity: 50
   verticalClamp: 70
+  cameraSmoothSpeed: 10
 --- !u!1 &385080504
 GameObject:
   m_ObjectHideFlags: 0

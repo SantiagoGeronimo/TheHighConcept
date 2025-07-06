@@ -72,7 +72,7 @@ public class PlayerMovement : MonoBehaviour
         // Dirección flechas relativa a la cámaraHolder (para el empuje leve)
         float arrowH = Input.GetAxisRaw("HorizontalArrow");
         float arrowV = Input.GetAxisRaw("VerticalArrow");
-        Vector3 arrowInput = new Vector3(arrowV, 0f, arrowH).normalized;
+        Vector3 arrowInput = new Vector3(arrowH, 0f, arrowV).normalized;
 
         Vector3 arrowDir = camForward * arrowInput.z + camRight * arrowInput.x;
 
