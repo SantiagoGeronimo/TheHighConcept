@@ -1,5 +1,5 @@
 using UnityEngine;
-using System.Collections.Generic; // Asegúrate de tener esto para Queue
+using System.Collections.Generic; 
 
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMovement : MonoBehaviour
@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        // Verificar que cameraHolderTransform esté asignado al inicio
+        
         if (cameraHolderTransform == null)
         {
             enabled = false; 
@@ -52,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (cameraHolderTransform == null) return;
 
-        // Ahora usamos la rotación del CameraHolder para el movimiento del jugador
+        // Camera holder to determine what forward is
         Vector3 camForward = cameraHolderTransform.forward; 
         Vector3 camRight = cameraHolderTransform.right;
 
@@ -61,7 +61,6 @@ public class PlayerMovement : MonoBehaviour
         camForward.Normalize();
         camRight.Normalize();
 
-        // Dirección WASD relativa a la cámaraHolder
         Vector3 moveDir = camForward * currentInput.z + camRight * currentInput.x;
 
         if (rb.linearVelocity.magnitude < maxSpeed)
@@ -69,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
             rb.AddForce(moveDir * moveForce, ForceMode.Acceleration);
         }
 
-        // Dirección flechas relativa a la cámaraHolder (para el empuje leve)
+        // Arrows slightly tilt player
         float arrowH = Input.GetAxisRaw("HorizontalArrow");
         float arrowV = Input.GetAxisRaw("VerticalArrow");
         Vector3 arrowInput = new Vector3(arrowH, 0f, arrowV).normalized;
